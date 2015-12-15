@@ -6,17 +6,18 @@ Value for each of the struct variable is set by searching
 the corresponding name tag in the environment.
 
 Author : shalin LK <shalinkktl@gmail.com>
- */
+*/
 
 package env_parser
 
 import (
 	"errors"
-	"github.com/shalinkktl/env_parser/models"
 	"os"
 	"reflect"
 	"strconv"
 	"strings"
+
+	"github.com/HiFX/env_parser/models"
 )
 
 const (
@@ -216,7 +217,7 @@ func (e EnvToStruct) envToHolder(prefix string, appEnvs map[int]fieldMeta) map[i
 	}
 	//cross check with app env
 	for i, fMeta := range appEnvs {
-		envVal, found := lookUpTable[prefix + fMeta.envName]
+		envVal, found := lookUpTable[prefix+fMeta.envName]
 		if found {
 			envVal = envVal
 			i = i
